@@ -3,9 +3,9 @@ execute pathogen#infect()
 
 " '\t' to spaces:
 set expandtab
-" show '\t' as 8 spaces:
+" number of columns showing '\t':
 set ts=8
-
+" number of columns for reident-commands(<<,>>)
 set sw=2
 set sts=2
 
@@ -48,4 +48,7 @@ set wildmode=longest,longest,list
 " omni
 set nocompatible
 filetype plugin on
+
+" set path to current directory and recursive content
+set path+=./**
 
