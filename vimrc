@@ -50,5 +50,5 @@ set nocompatible
 filetype plugin on
 
 " set path to current directory and recursive content
-set path+=./**
+set path=.,,**
 
