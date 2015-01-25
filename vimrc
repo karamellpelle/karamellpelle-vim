@@ -1,3 +1,5 @@
+set nocompatible
+
 " pathogen:
 execute pathogen#infect()
 
@@ -18,6 +20,12 @@ set autoindent
 " syntax
 filetype plugin on
 syntax on
+
+" prevent XXX in sessions
+set sessionoptions-=options
+
+" bottom ruler
+set ruler
 
 " haskell vim
 "au Bufenter *.hs compiler ghc
@@ -45,10 +53,19 @@ set tags=./tags;/
 " tab completion
 set wildmode=longest,longest,list
 
-" omni
-set nocompatible
 filetype plugin on
 
 " set path to current directory and recursive content
 set path=.,,**
 
+" syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatusLineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+
+" tcomment
+let g:tcommentOptions = {'whitespace': 'no' }
