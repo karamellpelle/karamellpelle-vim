@@ -12,11 +12,18 @@ Normal mode
 ------
 
     gi gg gj/gk 0 H/M/L gc(tcomment)
-    
+
+    keyword completion
+
 Packages
 ----------
 
+To use:
+
     - tagbar
+        - s
+        - <Space>
+        - jump to functions inside code
     - ctrlp
     - fugitive
     - matchit

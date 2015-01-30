@@ -40,7 +40,8 @@ set ruler
 set mouse=a
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+"nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarOpenAutoClose<CR>
 
 " always show tab-bar
 set showtabline=2
