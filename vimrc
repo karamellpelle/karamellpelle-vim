@@ -59,6 +59,9 @@ filetype plugin on
 " set path to current directory and recursive content
 set path=.,,**
 
+" let Ctrl-N only search current buffer
+set complete=.
+
 " syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatusLineFlag()}
@@ -70,3 +73,12 @@ set path=.,,**
 
 " tcomment
 let g:tcommentOptions = {'whitespace': 'no' }
+
+
+" Dokument
+let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
+
+" CtrlP
+"let g:ctrlp_default_input = 0
+let g:ctrlp_open_new_file= 't'
+
