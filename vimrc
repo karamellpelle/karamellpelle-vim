@@ -50,6 +50,29 @@ set showtabline=2
 set nowrap
 set tags=./tags;/
 
+" space as <Leader>
+let mapleader = "\<Space>"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" easymotion :)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" overwin does not work yet :(
+map <Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
+map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
+map <Leader>w <Plug>(easymotion-bd-w)
+"map <Leader>w <Plug>(easymotion-overwin-w)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
 
 " tab completion
 set wildmode=longest,longest,list
