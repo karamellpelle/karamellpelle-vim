@@ -1,30 +1,18 @@
-My own notes for being more effective
-================
+# TODO
 
-Resources
-------
+* make my own mapping to <Leader>
+* Q -> something
+* k,j -> gk,gj for text files
+* set nostartofline? 
 
-    - https://pragprog.com/book/dnvim/practical-vim
-    - https://el-tramo.be/blog/my-favorite-vim-plugins/
-    - http://vim.wikia.com/wiki/Vim_Tips_Wiki
+# Resources
 
-Normal mode
-------
+* http://bestofvim.com/
+* http://vimcasts.org/
+* https://www.reddit.com/r/vim
+* http://vim.wikia.com/wiki/Vim_Tips_Wiki
+* https://pragprog.com/book/dnvim/practical-vim
+* https://el-tramo.be/blog/my-favorite-vim-plugins/
+* https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+* http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
-    gi gg gj/gk 0 H/M/L gc(tcomment)
-
-    keyword completion
-
-Packages
-----------
-
-To use:
-
-    - tagbar
-        - s
-        - <Space>
-        - jump to functions inside code
-    - ctrlp
-    - fugitive
-    - matchit
-    - tcomment
