@@ -71,24 +71,31 @@ set complete=.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easymotion :)
-
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" searching
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" moving up and down colums
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" overwin does not work yet :(
+" jump to any character
+nmap s <Plug>(easymotion-overwin-f)
+" jump to character on line 
 map <Leader>f <Plug>(easymotion-bd-f)
-"nmap <Leader>f <Plug>(easymotion-overwin-f)
-map <Leader>L <Plug>(easymotion-bd-jk)
-"nmap <Leader>L <Plug>(easymotion-overwin-line)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" jump to any word
 map <Leader>w <Plug>(easymotion-bd-w)
-"map <Leader>w <Plug>(easymotion-overwin-w)
-map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>w <Plug>(easymotion-overwin-w)
+" jump up and down
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
-
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
