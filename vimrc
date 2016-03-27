@@ -1,3 +1,4 @@
+" lets be inspired by https://github.com/tpope/vim-sensible
 set nocompatible
 
 " pathogen:
@@ -16,6 +17,7 @@ set mouse=a
 set autoindent
 set nowrap
 "set textwidth=111
+set nrformats-=octal
 
 " syntax
 filetype plugin on
@@ -26,6 +28,8 @@ set sessionoptions-=options
 
 " bottom ruler
 set ruler
+set laststatus=2
+"set scrolloff=0   " minimum number of lines shown above cursor
 
 " haskell vim
 "au Bufenter *.hs compiler ghc
@@ -49,18 +53,22 @@ noremap L g_
 " use mouse
 set mouse=a
 
+
 " always show tab-bar
 set showtabline=2
 
-" my syntax
-set tags=./tags;/
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif 
+
+" detect if file has been changed outside vim, read it
+"set autoread 
 
 " space as <Leader>
 let mapleader = "\<Space>"
 
 set wildmode=longest,longest,list
 
-filetype plugin on
 
 " set path to current directory and recursive content
 set path=.,,**
@@ -75,8 +83,8 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " searching
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
 " moving up and down colums
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -119,3 +127,6 @@ let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
 "let g:ctrlp_default_input = 0
 let g:ctrlp_open_new_file= 't'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tabman
+let g:tabman_number = 0
