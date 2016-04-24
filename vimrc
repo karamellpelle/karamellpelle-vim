@@ -108,7 +108,9 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar
-nmap <F8> :TagbarOpenAutoClose<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
