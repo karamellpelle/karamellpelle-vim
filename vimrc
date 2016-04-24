@@ -112,6 +112,16 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabman
+nmap <F4> :TMToggle<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gundo
+nmap <F5> :GundoToggle<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tcomment
 let g:tcommentOptions = {'whitespace': 'no' }
 
@@ -119,6 +129,7 @@ let g:tcommentOptions = {'whitespace': 'no' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dokument
 let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
+let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
