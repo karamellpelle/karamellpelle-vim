@@ -76,6 +76,8 @@ set path=.,,**
 " let Ctrl-N only search current buffer
 set complete=.
 
+" jump away from modified buffers silently
+set hidden
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easymotion :)
@@ -149,3 +151,7 @@ let g:tabman_number = 0
 let g:maximizer_set_default_mapping = 0 
 nnoremap <C-W>o     :MaximizerToggle<CR>
 nnoremap <C-W><C-O> :MaximizerToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" scratch
+"let g:scratch_persistence_file = "" " keep scratch file
