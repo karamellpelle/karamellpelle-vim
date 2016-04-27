@@ -40,3 +40,6 @@
 [submodule "vim/bundle/scratch"]
 	path = vim/bundle/scratch
 	url = https://github.com/mtth/scratch.vim.git
+[submodule "vim/bundle/vim-visual-star-search"]
+	path = vim/bundle/vim-visual-star-search
+	url = https://github.com/nelstrom/vim-visual-star-search.git
