@@ -34,3 +34,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-maximizer"]
+	path = vim/bundle/vim-maximizer
+	url = https://github.com/szw/vim-maximizer.git

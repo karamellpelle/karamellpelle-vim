@@ -143,3 +143,9 @@ let g:ctrlp_open_new_file= 't'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
 let g:tabman_number = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-maximizer
+let g:maximizer_set_default_mapping = 0 
+nnoremap <C-W>o     :MaximizerToggle<CR>
+nnoremap <C-W><C-O> :MaximizerToggle<CR>
