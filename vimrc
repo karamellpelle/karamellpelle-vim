@@ -98,6 +98,10 @@ nmap <Leader>f <Plug>(easymotion-overwin-f)
 " jump to any word
 map <Leader>w <Plug>(easymotion-bd-w)
 map <Leader>w <Plug>(easymotion-overwin-w)
+map <Leader>e <Plug>(easymotion-e)
+map <Leader>E <Plug>(easymotion-E)
+map <Leader>ge <Plug>(easymotion-ge)
+map <Leader>gE <Plug>(easymotion-gE)
 " jump up and down
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 map <Leader>j <Plug>(easymotion-j)
