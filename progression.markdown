@@ -1,6 +1,5 @@
 # TODO
 
-* make my own mapping to <Leader>
 * Q -> something
 * k,j -> gk,gj for text files
 * set nostartofline? 
