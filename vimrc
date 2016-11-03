@@ -145,6 +145,7 @@ let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 "let g:ctrlp_default_input = 0
 let g:ctrlp_open_new_file= 't'
+let g:ctrlp_working_path_mode = ''
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
@@ -159,3 +160,8 @@ nnoremap <C-W><C-O> :MaximizerToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " scratch
 "let g:scratch_persistence_file = "" " keep scratch file
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
+let g:airline_powerline_fonts = 1
