@@ -165,3 +165,9 @@ nnoremap <C-W><C-O> :MaximizerToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
 let g:airline_powerline_fonts = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabmerge
+nnoremap tm :Tabmerge right<CR>
+nnoremap tM <C-W>T
