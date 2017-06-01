@@ -5,10 +5,6 @@
 # it just copies
 ################################################################################
 
-# pull submodules (if any)
-git submodule init
-git submodule update
-
 # remove current
 cd ~
 rm -rf .vim
