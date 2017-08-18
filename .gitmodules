@@ -52,3 +52,6 @@
 [submodule "vim/bundle/Tabmerge"]
 	path = vim/bundle/Tabmerge
 	url = https://github.com/vim-scripts/Tabmerge.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
