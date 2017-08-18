@@ -146,7 +146,10 @@ let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 "let g:ctrlp_default_input = 0
 let g:ctrlp_open_new_file= 't'
 let g:ctrlp_working_path_mode = ''
-
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.a|\.o|\.dat$'
+  \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
 let g:tabman_number = 0
