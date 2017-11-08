@@ -174,3 +174,10 @@ let g:airline_powerline_fonts = 1
 " Tabmerge
 nnoremap tm :Tabmerge right<CR>
 nnoremap tM <C-W>T
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""  vim-bookmarks
+
+" remove color of column
+highlight SignColumn ctermbg=none
