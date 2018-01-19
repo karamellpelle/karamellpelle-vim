@@ -1,7 +1,7 @@
 karamellpelle-vim
 =================
 
-my vim files, for use on different computers
+Vim 
     
     $ cd ~
     #$ rm -rf .vim .vimrc # erase current
