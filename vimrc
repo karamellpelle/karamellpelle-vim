@@ -153,6 +153,8 @@ let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 " CtrlP
 
 "let g:ctrlp_default_input = 0
+" maximum height in items
+let ctrlp_match_window = 'max:16'
 let g:ctrlp_open_new_file= 't'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
@@ -206,3 +208,17 @@ let g:multi_cursor_quit_key='<Esc>'
 ""  vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""  nerdtree
+" open nerdtree automatically if no files specified for vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" quit if only nerdtree open
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" open if directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
