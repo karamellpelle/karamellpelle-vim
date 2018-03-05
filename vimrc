@@ -130,11 +130,7 @@ nmap <F4> :TMToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Gundo
-"nmap <F5> :GundoToggle<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Undotree used in favor of Gundo
+" Undotree 
 nmap <F6> :UndotreeToggle<CR>
 
 
@@ -222,3 +218,4 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+nmap <F9> :NERDTreeToggle<CR>
