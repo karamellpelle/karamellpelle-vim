@@ -1,3 +1,4 @@
 .*.sw*
 .DS_Store
 vim/.netrwhist
+vim/scratch.vim

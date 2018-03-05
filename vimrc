@@ -73,8 +73,8 @@ set wildmode=longest,longest,list
 " set path to current directory and recursive content
 set path=.,,**
 
-" let Ctrl-N only search current buffer
-set complete=.
+" let Ctrl-N only search current buffer and buffers in windows
+set complete=.,w
 
 " jump away from modified buffers silently
 set hidden
@@ -167,7 +167,7 @@ nnoremap <C-W><C-O> :MaximizerToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " scratch
-"let g:scratch_persistence_file = "" " keep scratch file
+let g:scratch_persistence_file = "~/.vim/scratch.vim" " keep scratch file
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
