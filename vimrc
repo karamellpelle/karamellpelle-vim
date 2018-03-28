@@ -79,6 +79,10 @@ set complete=.,w
 " jump away from modified buffers silently
 set hidden
 
+" open splits at right or below
+set splitright
+set splitbelow
+
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
