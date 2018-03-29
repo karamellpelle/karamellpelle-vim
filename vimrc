@@ -156,8 +156,8 @@ let ctrlp_match_window = 'max:16'
 let g:ctrlp_open_new_file= 't'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$|\.hg$\|\.svn$',
-  \ 'file': '\.exe$\|\.so$\|\.a|\.o|\.dat$'
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$'
   \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
