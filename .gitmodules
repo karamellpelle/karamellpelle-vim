@@ -10,9 +10,6 @@
 [submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-dokumentary"]
 	path = vim/bundle/vim-dokumentary
 	url = git://github.com/gastonsimone/vim-dokumentary.git
