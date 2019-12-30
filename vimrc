@@ -118,6 +118,18 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 
+nmap <Leader>W<Space>m   <Plug>VimwikiMakeTomorrowDiaryNote
+nmap <Leader>W<Space>y   <Plug>VimwikiMakeYesterdayDiaryNote
+nmap <Leader>W<Space>t   <Plug>VimwikiTabMakeDiaryNote
+nmap <Leader>W<Space>w   <Plug>VimwikiMakeDiaryNote
+nmap <Leader>W<Space>i   <Plug>VimwikiDiaryGenerateLinks
+nmap <Leader>Wi     <Plug>VimwikiDiaryIndex
+nmap <Leader>Ws     <Plug>VimwikiUISelect
+" ^ TDDO: remove these
+"nmap <Leader>Wt     <Plug>VimwikiTabIndex
+nmap <Leader>WW     <Plug>VimwikiTabIndex
+nmap <Leader>Ww     <Plug>VimwikiIndex
+"nmap <Leader>Ww     <Plug>VimwikiIndex
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar
