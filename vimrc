@@ -151,6 +151,11 @@ nmap <F6> :UndotreeToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gutentags
+let g:gutentags_cache_dir = '/tmp'
+let g:gutentags_generate_on_empty_buffer = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tcomment
 let g:tcommentOptions = {'whitespace': 'no' }
 
