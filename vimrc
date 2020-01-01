@@ -34,6 +34,12 @@ set ruler
 set laststatus=2
 "set scrolloff=0   " minimum number of lines shown above cursor
 
+" i'm lazy
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " haskell vim
 "au Bufenter *.hs compiler ghc
 "let g:haddock_browser = "firefox"
