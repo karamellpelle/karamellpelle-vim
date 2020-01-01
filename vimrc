@@ -23,6 +23,9 @@ set nrformats-=octal
 filetype plugin on
 syntax on
 
+" no highlight of searches
+set nohlsearch
+
 " prevent XXX in sessions
 set sessionoptions-=options
 
@@ -246,6 +249,26 @@ nmap <F9> :NERDTreeToggle<CR>
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug
+
+call plug#begin('~/.vim/plugged')
+" deoplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+call plug#end()
+
+"let g:deoplete#enable_at_startup = 1
+" instead, enable deoplete manually:
+" call deoplete#enable()
+cnoreabbr DeopleteEnable call deoplete#enable()
+cnoreabbr DeopleteDisable call deoplete#disable()
+" TODO: manual trigger of deoplete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  hasktags : tag file for Haskell
