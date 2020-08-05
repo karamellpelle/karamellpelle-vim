@@ -13,4 +13,7 @@ Vim
 * add [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)?
 * add [goyo.vim](https://github.com/junegunn/goyo.vim)?
 * add [vim-peekaboo](https://github.com/junegunn/vim-peekaboo)?
+* add something like Ctrl-m to force deoplete
+
+
 
