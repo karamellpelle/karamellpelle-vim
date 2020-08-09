@@ -41,6 +41,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'darfink/vim-plist'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 
