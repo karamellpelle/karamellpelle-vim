@@ -35,6 +35,7 @@ Plug 'tpope/vim-abolish'
 Plug 'kien/tabman.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 
