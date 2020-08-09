@@ -1,9 +1,6 @@
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/vim-maximizer"]
-	path = vim/bundle/vim-maximizer
-	url = https://github.com/szw/vim-maximizer.git
 [submodule "vim/bundle/scratch"]
 	path = vim/bundle/scratch
 	url = https://github.com/mtth/scratch.vim.git
