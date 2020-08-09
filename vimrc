@@ -40,6 +40,7 @@ Plug 'gastonsimone/vim-dokumentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'darfink/vim-plist'
 call plug#end()
 
 
