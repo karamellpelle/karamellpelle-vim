@@ -28,6 +28,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/Tabmerge'
 call plug#end()
 
 
