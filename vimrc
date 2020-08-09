@@ -43,6 +43,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'darfink/vim-plist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
