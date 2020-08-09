@@ -42,6 +42,7 @@ Plug 'szw/vim-maximizer'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'darfink/vim-plist'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
