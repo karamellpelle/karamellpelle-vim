@@ -44,6 +44,7 @@ Plug 'darfink/vim-plist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'vim-scripts/matchit.zip'
 call plug#end()
 
 
