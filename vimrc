@@ -1,3 +1,10 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" karamellpelle-vim
+"
+" * https://vimawesome.com/
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " lets be inspired by https://github.com/tpope/vim-sensible
 set nocompatible
 
@@ -15,6 +22,8 @@ else
 endif
 Plug 'kien/ctrlp.vim'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 
