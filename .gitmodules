@@ -25,6 +25,3 @@
 [submodule "vim/bundle/vim-misc"]
 	path = vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
-[submodule "vim/bundle/vim-gutentags"]
-	path = vim/bundle/vim-gutentags
-	url = https://github.com/ludovicchabant/vim-gutentags.git

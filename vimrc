@@ -37,6 +37,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'gastonsimone/vim-dokumentary'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 
