@@ -24,6 +24,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'nelstrom/vim-visual-star-search'
 call plug#end()
 
 
