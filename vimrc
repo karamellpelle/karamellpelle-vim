@@ -219,7 +219,7 @@ let g:gutentags_generate_on_empty_buffer = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tcomment
-let g:tcommentOptions = {'whitespace': 'no' }
+let g:tcomment#options = {'whitespace': 'no' }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
