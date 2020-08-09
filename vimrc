@@ -30,6 +30,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/Tabmerge'
 Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
