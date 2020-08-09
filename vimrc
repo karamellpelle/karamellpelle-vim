@@ -32,6 +32,9 @@ Plug 'vim-scripts/Tabmerge'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
+Plug 'kien/tabman.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
@@ -228,6 +231,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$',
   \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$'
   \ }
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
 let g:tabman_number = 0
