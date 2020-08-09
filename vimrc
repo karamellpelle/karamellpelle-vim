@@ -27,6 +27,7 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 
