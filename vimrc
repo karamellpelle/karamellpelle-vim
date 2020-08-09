@@ -39,6 +39,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'szw/vim-maximizer'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
