@@ -31,6 +31,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/Tabmerge'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 
