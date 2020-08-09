@@ -1,6 +1,3 @@
-[submodule "vim/bundle/scratch"]
-	path = vim/bundle/scratch
-	url = https://github.com/mtth/scratch.vim.git
 [submodule "vim/bundle/undotree"]
 	path = vim/bundle/undotree
 	url = https://github.com/mbbill/undotree.git
