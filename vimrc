@@ -1,7 +1,31 @@
 " lets be inspired by https://github.com/tpope/vim-sensible
 set nocompatible
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug
+
+call plug#begin('~/.vim/plugged')
+" deoplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'kien/ctrlp.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+call plug#end()
+
+
+"let g:deoplete#enable_at_startup = 1
+" instead, enable deoplete manually:
+" call deoplete#enable()
+cnoreabbr DeopleteEnable call deoplete#enable()
+cnoreabbr DeopleteDisable call deoplete#disable()
+" TODO: manual trigger of deoplete
 " pathogen:
+" TODO: remove and rely on vim-plug
 execute pathogen#infect()
 
 " '\t' to spaces:
@@ -255,27 +279,6 @@ nmap <F9> :NERDTreeToggle<CR>
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug
-
-call plug#begin('~/.vim/plugged')
-" deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'MattesGroeger/vim-bookmarks'
-call plug#end()
-
-"let g:deoplete#enable_at_startup = 1
-" instead, enable deoplete manually:
-" call deoplete#enable()
-cnoreabbr DeopleteEnable call deoplete#enable()
-cnoreabbr DeopleteDisable call deoplete#disable()
-" TODO: manual trigger of deoplete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  hasktags : tag file for Haskell
