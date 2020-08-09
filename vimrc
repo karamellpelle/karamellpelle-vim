@@ -26,6 +26,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 
