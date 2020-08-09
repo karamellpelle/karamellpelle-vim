@@ -29,6 +29,7 @@ Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/Tabmerge'
+Plug 'raimondi/delimitmate'
 call plug#end()
 
 
