@@ -5,13 +5,14 @@
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" lets be inspired by https://github.com/tpope/vim-sensible
 set nocompatible
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 
 call plug#begin('~/.vim/plugged')
+
 " deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -45,24 +46,23 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/matchit.zip'
+Plug 'majutsushi/tagbar'
+"Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
+"Plug 'mbbill/undotree'
 call plug#end()
 
 
-"let g:deoplete#enable_at_startup = 1
-" instead, enable deoplete manually:
-" call deoplete#enable()
-cnoreabbr DeopleteEnable call deoplete#enable()
-cnoreabbr DeopleteDisable call deoplete#disable()
-" TODO: manual trigger of deoplete
-" pathogen:
-" TODO: remove and rely on vim-plug
-execute pathogen#infect()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" settings
 
-" '\t' to spaces:
+" space is <Leader>
+let mapleader = "\<Space>"
+
+" tab to spaces
 set expandtab
-" number of columns showing '\t':
+" number of columns to show a '\t':
 set ts=8
-" number of columns for reident-commands(<<,>>)
+" number of columns for indent keys < and >
 set sw=2
 set sts=2
 
@@ -88,18 +88,18 @@ set ruler
 set laststatus=2
 "set scrolloff=0   " minimum number of lines shown above cursor
 
-" i'm lazy
+" lasy write and quit
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
 
-" haskell vim
-"au Bufenter *.hs compiler ghc
-"let g:haddock_browser = "firefox"
-
-" select pasted text
+" select the pasted text
 noremap gV `[v`]
+
+" jump to beginning and end of line (excluding spaces)
+noremap H ^
+noremap L g_
 
 " Y yank to end of line, like D does
 nnoremap Y y$
@@ -108,14 +108,8 @@ nnoremap Y y$
 " TODO: find something useful for Q
 nnoremap Q <Nop>
 
-
-" begin and end of line (non-space)
-noremap H ^
-noremap L g_
-
 " use mouse
 set mouse=a
-
 
 " always show tab-bar
 set showtabline=2
@@ -127,11 +121,7 @@ endif
 " detect if file has been changed outside vim, read it
 "set autoread 
 
-" space as <Leader>
-let mapleader = "\<Space>"
-
 set wildmode=longest,longest,list
-
 
 " set path to current directory and recursive content
 set path=.,,**
@@ -149,22 +139,31 @@ set splitbelow
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" easymotion :)
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" easymotion
+
+" disable default mappings
+let g:EasyMotion_do_mapping = 0 
+
 " searching
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 "map  n <Plug>(easymotion-next)
 "map  N <Plug>(easymotion-prev)
+"
 " moving up and down colums
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
 " jump to any character
 nmap s <Plug>(easymotion-overwin-f)
+
 " jump to character on line 
 map <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
+
 " jump to any word
 map <Leader>w <Plug>(easymotion-bd-w)
 map <Leader>w <Plug>(easymotion-overwin-w)
@@ -172,6 +171,7 @@ map <Leader>e <Plug>(easymotion-e)
 map <Leader>E <Plug>(easymotion-E)
 map <Leader>ge <Plug>(easymotion-ge)
 map <Leader>gE <Plug>(easymotion-gE)
+
 " jump up and down
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 map <Leader>j <Plug>(easymotion-j)
@@ -180,6 +180,10 @@ map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimwiki
 
 nmap <Leader>W<Space>m   <Plug>VimwikiMakeTomorrowDiaryNote
 nmap <Leader>W<Space>y   <Plug>VimwikiMakeYesterdayDiaryNote
@@ -194,43 +198,55 @@ nmap <Leader>WW     <Plug>VimwikiTabIndex
 nmap <Leader>Ww     <Plug>VimwikiIndex
 "nmap <Leader>Ww     <Plug>VimwikiIndex
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar
+" tagbar
+
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 nnoremap <silent> <F8> :TagbarToggle<CR>
 nmap <silent> <leader>i :TagbarToggle<CR>
-" Uncomment to open tagbar automatically whenever possible
+
+" open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabman
+" tabman
+
+" F4: show/hide tab manager
 nmap <F4> :TMToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Undotree 
+" undotree (not used at the moment)
+
+" F6: show/hide undotree
 nmap <F6> :UndotreeToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Gutentags
+" gutentags
+
 let g:gutentags_cache_dir = '/tmp'
 let g:gutentags_generate_on_empty_buffer = 1
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tcomment
+
 let g:tcomment#options = {'whitespace': 'no' }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Dokument
+" dokument
+
 let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
 let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
+" ctrlp
 
 "let g:ctrlp_default_input = 0
 " maximum height in items
@@ -242,42 +258,59 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$'
   \ }
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" deoplete
+
+"let g:deoplete#enable_at_startup = 1 
+" manual enable/disable deoplete: `call deoplete#enable()` / `call deoplete#disable()`
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
+
 let g:tabman_number = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-maximizer
+
 let g:maximizer_set_default_mapping = 0 
 nnoremap <C-W>o     :MaximizerToggle<CR>
 nnoremap <C-W><C-O> :MaximizerToggle<CR>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" scratch
-let g:scratch_persistence_file = "~/.vim/scratch.vim" " keep scratch file
+" scratch (not used anymore)
+
+" keep scratch file
+let g:scratch_persistence_file = "~/.vim/scratch.vim" 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
+
 let g:airline_powerline_fonts = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabmerge
+" tabmerge
+
 nnoremap tm :Tabmerge right<CR>
 nnoremap tM <C-W>T
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""  vim-bookmarks
+" vim-bookmarks
 
 " remove color of column
 highlight SignColumn ctermbg=none
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""  vim-multiple-cursors
 
-" Default mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-multiple-cursors
+
+" default mapping
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-j>'
@@ -286,33 +319,40 @@ let g:multi_cursor_quit_key='<Esc>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""  vim-easy-align
+" vim-easy-align
+
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""  nerdtree
+" nerdtree
+
 " open nerdtree automatically if no files specified for vim
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" quit if only nerdtree open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " open if directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" quit if only nerdtree open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" F9 for nerd tree
 nmap <F9> :NERDTreeToggle<CR>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" delimitMate
+" delimitmate
+
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  hasktags : tag file for Haskell
+
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'  : 'hasktags',
     \ 'ctagsargs' : '-x -c -o-',
