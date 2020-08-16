@@ -384,3 +384,12 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" source settings from local file (if present)
+
+let s:local_vimrc = expand('~/.vim/local.vim')  
+if filereadable( s:local_vimrc )
+    execute "source " . s:local_vimrc
+endif
