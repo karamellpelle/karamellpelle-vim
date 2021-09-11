@@ -185,18 +185,20 @@ map <Leader>h <Plug>(easymotion-linebackward)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimwiki
 
-nmap <Leader>W<Space>m   <Plug>VimwikiMakeTomorrowDiaryNote
-nmap <Leader>W<Space>y   <Plug>VimwikiMakeYesterdayDiaryNote
-nmap <Leader>W<Space>t   <Plug>VimwikiTabMakeDiaryNote
-nmap <Leader>W<Space>w   <Plug>VimwikiMakeDiaryNote
-nmap <Leader>W<Space>i   <Plug>VimwikiDiaryGenerateLinks
-nmap <Leader>Wi     <Plug>VimwikiDiaryIndex
-nmap <Leader>Ws     <Plug>VimwikiUISelect
-" ^ TDDO: remove these
-"nmap <Leader>Wt     <Plug>VimwikiTabIndex
+" mappings. vimwiki will not overwrite mappings from other plugins 
 nmap <Leader>WW     <Plug>VimwikiTabIndex
-nmap <Leader>Ww     <Plug>VimwikiIndex
-"nmap <Leader>Ww     <Plug>VimwikiIndex
+nmap <Leader>WS     <Plug>VimwikiUISelect
+
+" define our Vim-wikis
+
+" default wiki
+let wiki_0 = {}
+"let wiki_0.path = '~/my_docs/'
+let wiki_0.syntax = 'markdown'
+let wiki_0.ext = '.md'
+let wiki_0.nested_syntaxes = { 'c++': 'cpp', 'haskell': 'haskell'} 
+
+let g:vimwiki_list = [wiki_0]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,7 +293,7 @@ let g:scratch_persistence_file = "~/.vim/scratch.vim"
 " airline
 
 let g:airline_powerline_fonts = 1
-
+let g:airline#extensions#tagbar#flags = 'f'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabmerge
@@ -351,8 +353,9 @@ let delimitMate_expand_space = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  hasktags : tag file for Haskell
+"  tagbar languages 
 
+" hasktags : tag file for Haskell
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'  : 'hasktags',
     \ 'ctagsargs' : '-x -c -o-',
@@ -383,6 +386,14 @@ let g:tagbar_type_haskell = {
         \ 'data'   : 'd',
         \ 'type'   : 't'
     \ }
+\ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
 \ }
 
 
