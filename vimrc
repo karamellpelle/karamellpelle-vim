@@ -46,6 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/matchit.zip'
 Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
 "Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
 "Plug 'mbbill/undotree'
 call plug#end()
@@ -293,6 +294,14 @@ let g:scratch_persistence_file = "~/.vim/scratch.vim"
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#flags = 'f'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gitgutter
+
+set updatetime=100
+nmap <leader>g :GitGutterBufferToggle<CR>
+nmap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabmerge
