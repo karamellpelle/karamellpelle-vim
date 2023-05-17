@@ -48,9 +48,11 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
+Plug 'jremmen/vim-ripgrep'
+"Plug 'mbbill/undotree'
+Plug  'mtth/scratch.vim'
 "Plug 'junegunn/limelight.vim' " FIXME: configure this for Goyo
 "Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
-"Plug 'mbbill/undotree'
 call plug#end()
 
 
@@ -285,7 +287,7 @@ nnoremap <C-W><C-O> :MaximizerToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" scratch (not used anymore)
+" scratch 
 
 " keep scratch file
 let g:scratch_persistence_file = "~/.vim/scratch.vim" 
@@ -368,6 +370,15 @@ let delimitMate_expand_space = 1
 nmap <silent> <F7> :Goyo<CR>
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ripgrep
+
+let g:rg_highlight = 1
+let g:rg_derive_root = 1
+let g:rg_format = '%f:%l:%m'
+"let g:rg_command = 'rg --vimgrep --heading'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
