@@ -52,6 +52,7 @@ Plug 'jremmen/vim-ripgrep'
 "Plug 'mbbill/undotree'
 Plug  'mtth/scratch.vim'
 Plug  'junegunn/vim-peekaboo'
+Plug 'wellle/targets.vim'
 "Plug 'junegunn/limelight.vim' " FIXME: configure this for Goyo
 "Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
 call plug#end()
@@ -376,6 +377,14 @@ nmap <silent> <F7> :Goyo<CR>
     "autocmd FileType markdown :Goyo
     "autocmd FileType text :Goyo
 "augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" peekaboo
+
+let g:peekaboo_delay = 400
+let g:peekaboo_compact = 1
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ripgrep
