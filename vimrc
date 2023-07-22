@@ -156,8 +156,9 @@ let g:EasyMotion_do_mapping = 0
 " searching
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-"map  n <Plug>(easymotion-next)
-"map  N <Plug>(easymotion-prev)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+"let g:EasyMotion_inc_highlight = 0
 "
 " moving up and down colums
 map <Leader>j <Plug>(easymotion-j)
