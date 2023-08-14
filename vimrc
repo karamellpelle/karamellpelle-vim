@@ -53,10 +53,12 @@ Plug 'jremmen/vim-ripgrep'
 Plug  'mtth/scratch.vim'
 Plug  'junegunn/vim-peekaboo'
 Plug 'wellle/targets.vim'
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 "Plug 'junegunn/limelight.vim' " FIXME: configure this for Goyo
 "Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
+"Plug 'https://github.com/voldikss/vim-floaterm'
 call plug#end()
 
 
@@ -250,9 +252,9 @@ let g:tcomment#options = {'whitespace': 'no' }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" dokument
+" dokumentary
 
-let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
+let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '', 'haskell': '' }
 let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 
@@ -411,7 +413,7 @@ nmap <silent> <F7> :Goyo<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " peekaboo
 
-let g:peekaboo_delay = 400
+let g:peekaboo_delay = 300
 let g:peekaboo_compact = 1
 
 
