@@ -55,6 +55,8 @@ Plug  'junegunn/vim-peekaboo'
 Plug 'wellle/targets.vim'
 "Plug 'junegunn/limelight.vim' " FIXME: configure this for Goyo
 "Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'monkoose/fzf-hoogle.vim'
 call plug#end()
 
 
@@ -254,6 +256,32 @@ let g:dokumentary_docprgs = {'cpp': 'cppman {0}', 'python': '','go': '' }
 let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fzf-hoogle
+
+" let K search hoogle at below (does not work when vim-dokumentary, yet!)
+augroup HoogleMaps
+  autocmd!
+  autocmd FileType haskell setlocal keywordprg=:Hoogle
+augroup END
+
+" set colors 
+" FIXME: instead configure native overlay colors?
+"let g:fzf_colors =
+"\ { 'fg':      ['fg', 'Normal'],
+"  \ 'bg':      ['bg', 'Normal'],
+"  \ 'hl':      ['fg', 'Comment'],
+"  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"  \ 'hl+':     ['fg', 'Statement'],
+"  \ 'info':    ['fg', 'PreProc'],
+"  \ 'border':  ['fg', 'Ignore'],
+"  \ 'prompt':  ['fg', 'Conditional'],
+"  \ 'pointer': ['fg', 'Exception'],
+"  \ 'marker':  ['fg', 'Keyword'],
+"  \ 'spinner': ['fg', 'Label'],
+"  \ 'header':  ['fg', 'Comment'] }
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp
 
