@@ -12,15 +12,6 @@ set nocompatible
 " vim-plug
 
 call plug#begin('~/.vim/plugged')
-
-" deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 Plug 'kien/ctrlp.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'scrooloose/nerdtree'
@@ -55,10 +46,14 @@ Plug  'junegunn/vim-peekaboo'
 Plug 'wellle/targets.vim'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 "Plug 'junegunn/limelight.vim' " FIXME: configure this for Goyo
-"Plug 'eagletmt/neco-ghc' " for deoplete. maybe use coc and hie instead: https://github.com/haskell/haskell-ide-engine#using-hie-with-vim-or-neovim
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 "Plug 'https://github.com/voldikss/vim-floaterm'
+
+if has('nvim')
+Plug 'dcampos/nvim-snippy' 
+endif
+
 call plug#end()
 
 
@@ -299,13 +294,6 @@ let g:ctrlp_custom_ignore = {
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" deoplete
-
-"let g:deoplete#enable_at_startup = 1 
-" manual enable/disable deoplete: `call deoplete#enable()` / `call deoplete#disable()`
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabman
 
 let g:tabman_number = 0
@@ -469,6 +457,11 @@ let g:tagbar_type_markdown = {
         \ 'k:Heading_L3'
     \ ]
 \ }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-snippy 
+" (done in ~/.config/nvim/init.vim)
+" FIXME: this plugin should not be in this Vim config (~/.vimrc)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

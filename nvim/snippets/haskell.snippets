@@ -1,0 +1,35 @@
+snippet lang
+	{-# LANGUAGE ${1:OverloadedStrings} #-}
+	${0}
+snippet ghc
+	{-# OPTIONS_GHC ${1:-Wno-} #-}
+	${0}
+snippet newmod
+	-- Copyright (C) ${3:`strftime('%Y')`} karamellpelle@hotmail.com
+	-- 
+	-- This file is part of '${2:Package name}'.
+	-- 
+	-- '$2' is free software: you can redistribute it and/or modify
+	-- it under the terms of the GNU General Public License as published by
+	-- the Free Software Foundation, either version 3 of the License, or
+	-- (at your option) any later version.
+	-- 
+	-- '$2' is distributed in the hope that it will be useful,
+	-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+	-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	-- GNU General Public License for more details.
+	-- 
+	-- You should have received a copy of the GNU General Public License
+	-- along with '${2}'.  If not, see <http://www.gnu.org/licenses/>.
+	--
+	module ${1:`substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`}
+	  (
+
+	  ) where
+
+	import MyPrelude
+	$0
+
+snippet venn
+	${1:Greger}! Velg din beste venn: ${2|Erik N,Bendik,Stein Erik,Andreas Bortne, Pär Liss, Michael Shumaker|}
+	$0

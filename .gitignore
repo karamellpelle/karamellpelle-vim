@@ -5,3 +5,4 @@ vim/scratch.vim
 vim/spell
 vim/plugged
 vim/local.vim
+vim/autoload/plug.vim.old
