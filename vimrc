@@ -50,6 +50,8 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 "Plug 'https://github.com/voldikss/vim-floaterm'
 
+Plug 'uptech/vim-ping-cursor'
+
 if has('nvim')
 Plug 'dcampos/nvim-snippy' 
 endif
@@ -457,6 +459,13 @@ let g:tagbar_type_markdown = {
         \ 'k:Heading_L3'
     \ ]
 \ }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-ping-cursor
+nnoremap <leader>p :PingCursor<cr>
+
+" This is the default
+"let g:ping_cursor_flash_milliseconds = 250
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim-snippy 
