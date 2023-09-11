@@ -49,11 +49,24 @@ Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 "Plug 'https://github.com/voldikss/vim-floaterm'
-
 Plug 'uptech/vim-ping-cursor'
 
+
+" don't fire startify if vimpager
+" FIXME: this does not work
+if !exists("g:vimpager")
+Plug 'mhinz/vim-startify'
+endif
+
+" NeoVim exclusive plugins
 if has('nvim')
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'dcampos/nvim-snippy' 
+Plug '~/Source/nvim-skeletty'
+Plug 'ii14/neorepl.nvim' 
+Plug 'luc-tielen/telescope_hoogle'
+Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 endif
 
 call plug#end()
@@ -145,6 +158,73 @@ set splitbelow
 
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-startify
+if !exists("g:vimpager")
+
+" cd to git root
+let g:startify_change_to_dir = 1
+let g:startify_change_to_vcs_root = 1
+
+" update file items upon start
+let g:startify_update_oldfiles = 1
+
+" ignore files from patterns
+"let g:startify_skiplist = 
+
+" centered header
+" pick random quote and cowsay with random figure
+" using current cowsay-apj, we must remove cows with names beginning with
+" uppercase since such cow files are not implemented yet
+let s:header_cmd = 
+  \ 'fortune | cowsay -W 80 -f $(cowsay -l | sed "/[A-Z].*$/d" | shuf -n 1)'
+let g:startify_custom_header =
+  \ startify#center(split(system(s:header_cmd), '\n'))
+
+" centered footer TODO: add some fun :)
+let g:startify_custom_footer = 
+    \ startify#center(split(system('git status --short'), '\n'))
+"let g:startify_custom_footer = 
+"   \ startify#center(split("lines"), '\n')) " split :: String -> [String]
+"let s:ascii = [
+"   \ '    ',
+"   \ ' O o',
+"   \ '  -',
+"   \ ' ' 
+"   \]
+"let g:startify_custom_footer = 
+"   \ startify#center(s:ascii)
+
+" start menu: files in current project + custom commands
+let g:startify_lists = [
+      "\ { 'type': 'files',     'header': ['   MRU']            },
+      "\ { 'type': 'dir',       'header': ['   Previous files in current project '. fnamemodify(getcwd(), ':t')] },
+      \ { 'type': 'dir',       'header': ['   Recent files in current folder '. getcwd()] },
+      "\ { 'type': 'sessions',  'header': ['   Sessions']       },
+      "\ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+" see :h startify-mappings for map characters to avoid: q, e, e, b, s, v, t
+let g:startify_commands = [
+    "\ ':help reference',
+    "\ ['Vim Reference', 'h ref'],
+    "\ {'h': 'h ref'},
+    "\ {'m': ['My magical function', 'call Magic()']},
+    \ {'g': ['git status', '! git status']},
+    \ ]
+
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
+
+endif
 
 
 
