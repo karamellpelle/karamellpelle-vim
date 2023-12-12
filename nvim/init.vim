@@ -24,8 +24,15 @@ xmap <Tab> <Plug>(snippy-cut-text)
 
 highlight SnippyHighlight cterm=underline,bold ctermfg=11 gui=bold guifg=Yellow 
 
-" execute settings in Lua
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoVim lua
+
 lua << EOF
+
+--------------------------------------------------------------------------------
+-- Telescope with friends
+
+require( "user.telescope" )
 
 
 --------------------------------------------------------------------------------
@@ -38,77 +45,25 @@ require( 'snippy' ).setup({
 
 
 --------------------------------------------------------------------------------
---  Telescope
-
-local telescope = require('telescope')
-
-telescope.setup {
-
-  defaults = {
-      initial_mode = "normal"
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
-    -- ..
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
-  extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-
-    --skeletty = {  }
-  }
-}
-
---------------------------------------------------------------------------------
---  Hoogle
-
-telescope.load_extension('hoogle')
-
---------------------------------------------------------------------------------
---  vim-bookmarks
-
-telescope.load_extension('vim_bookmarks')
-
--- set local actions (Picker)
-local bookmark_actions = require('telescope').extensions.vim_bookmarks.actions
-require('telescope').extensions.vim_bookmarks.all {
-    attach_mappings = function(_, map) 
-        map('n', 'dd', bookmark_actions.delete_selected_or_at_cursor)
-
-        return true
-    end
-}
-
---------------------------------------------------------------------------------
 --  Skeletty
 
 
 require( 'skeletty' ).setup( {
       dirs = { '~/.vim/skeletons', '~/.config/nvim/skeletons' },
       localdir = '.skeletons',
-      localdir_project = true,
+      --localdir_project = true,
       --auto = true,
-      --apply_at_top = true,
+      apply_at_top = true,
       --localdir_exclusive = true,
       --override = true,
       --selector_native_force = false,
+      apply_syntax = true,
       telescope = 
       {
-          --skeletty_higroup = "Search",
+          --skeletty_hl_group = "Search",
       }
   } )
 
-telescope.load_extension('skeletty')
+require("telescope").load_extension('skeletty')
 
 EOF

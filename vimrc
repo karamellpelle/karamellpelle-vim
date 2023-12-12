@@ -67,6 +67,8 @@ Plug '~/Source/nvim-skeletty'
 Plug 'ii14/neorepl.nvim' 
 Plug 'luc-tielen/telescope_hoogle'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
+Plug 'octarect/telescope-menu.nvim'
+Plug 'AckslD/nvim-neoclip.lua'
 endif
 
 call plug#end()
@@ -159,6 +161,8 @@ set splitbelow
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
+" I like this colorscheme
+colorscheme torte
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
@@ -234,6 +238,13 @@ endif
 " disable default mappings
 let g:EasyMotion_do_mapping = 0 
 
+" Uppercase as targets
+"let g:EasyMotion_use_upper = 1 
+"let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+
+" no increment search
+"let g:EasyMotion_move_highlight = 0
+
 " searching
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -288,6 +299,8 @@ let wiki_0.nested_syntaxes = { 'c++': 'cpp', 'haskell': 'haskell'}
 
 let g:vimwiki_list = [wiki_0]
 
+" don't use local markdowns as a wiki, only 'vimwiki_list'
+let g:vimwiki_global_ext = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
@@ -371,7 +384,7 @@ let g:ctrlp_open_new_file= 't'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.stack-work$',
-  \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$'
+  \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$|\.aux$'
   \ }
 
 
