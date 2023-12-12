@@ -161,6 +161,9 @@ set splitbelow
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
+" help in new tab
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+
 " I like this colorscheme
 colorscheme torte
 
