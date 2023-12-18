@@ -2,7 +2,7 @@
 " karamellpelle-vim
 "
 " * https://vimawesome.com/
-"
+" * https://neovimcraft.com/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
@@ -162,9 +162,6 @@ set splitbelow
 
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-
-" help in new tab
-cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
 " I like this colorscheme
 colorscheme torte
@@ -488,14 +485,47 @@ let delimitMate_expand_space = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " goyo
 
+" Goyo from F7
 nmap <silent> <F7> :Goyo<CR>
 
-"augroup AutomaticGoyo
-    "autocmd!
-    "autocmd FileType * :Goyo!
-    "autocmd FileType markdown :Goyo
-    "autocmd FileType text :Goyo
-"augroup END
+
+" special actions for help files
+function! s:at_help()
+    if &buftype == 'help'
+        " enable 'q' = quit
+        nnoremap <buffer> q <C-w>q<C-w>q
+        nnoremap <buffer> q <C-w>q<C-w>q
+        Goyo
+    endif
+endfunction
+
+augroup AutomaticGoyo
+    autocmd!
+    autocmd BufEnter *.txt call s:at_help()
+augroup END
+
+
+function! s:goyo_enter()
+    if has('gui_running')
+      "set fullscreen
+      "set background=light
+      "set linespace=7
+    endif
+
+endfunction
+
+function! s:goyo_leave()
+    if has('gui_running')
+        "set nofullscreen
+        "set background=dark
+        "set linespace=0
+    endif
+
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -569,6 +599,7 @@ nnoremap <leader>p :PingCursor<cr>
 " nvim-snippy 
 " (done in ~/.config/nvim/init.vim)
 " FIXME: this plugin should not be in this Vim config (~/.vimrc)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-pandoc
 
@@ -600,6 +631,9 @@ augroup Pandoc
   "autocmd Pandoc FileType pandoc 
   "autocmd Pandoc WinEnter 
 augroup END
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " source settings from local file (if present)
