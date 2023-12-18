@@ -51,11 +51,11 @@ require( 'snippy' ).setup({
 require( 'skeletty' ).setup( {
       dirs = { '~/.vim/skeletons', '~/.config/nvim/skeletons' },
       localdir = '.skeletons',
-      --localdir_project = true,
-      --auto = true,
+      localdir_project = true,
+      localdir_exclusive = true,
+      auto = true,
       apply_at_top = true,
-      --localdir_exclusive = true,
-      --override = true,
+      override = true,
       --selector_native_force = false,
       apply_syntax = true,
       telescope = 
