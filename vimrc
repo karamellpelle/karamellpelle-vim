@@ -50,6 +50,8 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 "Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'uptech/vim-ping-cursor'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
 
 
 " don't fire startify if vimpager
@@ -567,7 +569,37 @@ nnoremap <leader>p :PingCursor<cr>
 " nvim-snippy 
 " (done in ~/.config/nvim/init.vim)
 " FIXME: this plugin should not be in this Vim config (~/.vimrc)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-pandoc
 
+" no annoying spell highlight
+let g:pandoc#spell#enabled = 0
+
+" remove folding
+let g:pandoc#modules#disabled = ["folding", "bibliographies"]
+
+" linebreak (hard and smart auto)
+let g:pandoc#formatting#mode = 'hA'
+
+" templates location
+" ('PandocTemplate get' did not work with real templates)
+"let g:pandoc#command#templates_file = "~/.local/share/pandoc/templates"
+
+" no default mappings
+let g:pandoc#keyboard#use_default_mappings = 0
+
+"let g:pandoc#hypertext#use_default_mappings = 0
+
+" specific Pandoc autocommands
+" run pandoc & open pdf when writing a pandoc file (i.e. markdown)
+"let #autocmd FileType pandoc let g:pandoc#command#autoexec_command = "Pandoc! pdf"
+"let g:pandoc#command#autoexec_on_writes = 1
+augroup Pandoc
+  autocmd!
+  "autocmd FileType pandoc setlocal keywordprg=:Hoogle
+  "autocmd Pandoc FileType pandoc 
+  "autocmd Pandoc WinEnter 
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " source settings from local file (if present)
