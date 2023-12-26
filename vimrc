@@ -50,9 +50,9 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 "Plug 'https://github.com/voldikss/vim-floaterm'
 Plug 'uptech/vim-ping-cursor'
-Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
-
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'junegunn/gv.vim' " needs vim-fugitive
 
 " don't fire startify if vimpager
 " FIXME: this does not work
@@ -91,7 +91,6 @@ set sw=2
 set sts=2
 
 set backspace=indent,eol,start
-set mouse=a
 set autoindent
 set nowrap
 "set textwidth=111
@@ -108,15 +107,11 @@ set nohlsearch
 set sessionoptions-=options
 
 " bottom ruler
-set ruler
+set noruler
 set laststatus=2
-"set scrolloff=0   " minimum number of lines shown above cursor
 
-" lasy write and quit
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+" minimum number of lines shown above cursor
+"set scrolloff=0   
 
 " select the pasted text
 noremap gV `[v`]
@@ -166,8 +161,15 @@ nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v
 " I like this colorscheme
 colorscheme torte
 
+" map international keyboard to US-keyboard (non-insert mode)
+set nolangremap " don't map after a mapping
+set langmap=ø[,æ],å\\,Ø{,Æ},Å\|
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
+"
 if !exists("g:vimpager")
 
 " cd to git root
@@ -219,7 +221,7 @@ let g:startify_commands = [
     "\ ['Vim Reference', 'h ref'],
     "\ {'h': 'h ref'},
     "\ {'m': ['My magical function', 'call Magic()']},
-    \ {'g': ['git status', '! git status']},
+    "\ {'g': ['git status', '! git status']},
     \ ]
 
 highlight StartifyBracket ctermfg=240
@@ -304,13 +306,14 @@ let g:vimwiki_list = [wiki_0]
 " don't use local markdowns as a wiki, only 'vimwiki_list'
 let g:vimwiki_global_ext = 0
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
 
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 nnoremap <silent> <F8> :TagbarToggle<CR>
-nmap <silent> <leader>i :TagbarToggle<CR>
+nnoremap <silent> <leader>i :TagbarToggle<CR>
 
 " open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
@@ -321,6 +324,9 @@ nmap <silent> <leader>i :TagbarToggle<CR>
 
 " F4: show/hide tab manager
 nmap <F4> :TMToggle<CR>
+
+" show special buffers too, not only files
+let g:tabman_specials = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -351,13 +357,7 @@ let g:dokumentary_open = 'rightbelow new' " open horizontally and below
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf-hoogle
-
-" let K search hoogle at below (does not work when vim-dokumentary, yet!)
-augroup HoogleMaps
-  autocmd!
-  autocmd FileType haskell setlocal keywordprg=:Hoogle
-augroup END
+" fzf
 
 " set colors 
 " FIXME: instead configure native overlay colors?
@@ -375,19 +375,41 @@ augroup END
 "  \ 'marker':  ['fg', 'Keyword'],
 "  \ 'spinner': ['fg', 'Label'],
 "  \ 'header':  ['fg', 'Comment'] }
-"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fzf-hoogle
+
+" let K search hoogle at below (does not work when vim-dokumentary, yet!)
+augroup HoogleMaps
+  autocmd!
+  autocmd FileType haskell setlocal keywordprg=:Hoogle
+augroup END
+
+if has('macos')
+  g:hoogle_open_link = 'open'
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp
 
-"let g:ctrlp_default_input = 0
-" maximum height in items
+" maximum height, in items
 let ctrlp_match_window = 'max:16'
+
+" new file in new tab
 let g:ctrlp_open_new_file= 't'
-let g:ctrlp_working_path_mode = ''
+
+" set search root
+let g:ctrlp_working_path_mode = '' " current working directory
+"let g:ctrlp_working_path_mode = 'ra' project folder of current file
+
+" ignore these files and directories from search results
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.stack-work$',
-  \ 'file': '\.exe$\|\.so$\|\.a$\|\.o$\|\.dat$\|\.hi$\|\.dyn_hi$\|\.dyn_o$|\.aux$'
+  \ 'dir':  '\v[\/]\.(git|hg|svn|stack-work)$',
+  \ 'file': '\v\.(exe|so|dll|a|o|dat|hi|dyn_hi|dyn_o|aux)$'
   \ }
+
+" search filenames, not filepath (folders)
+let g:ctrlp_by_filename = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -400,8 +422,8 @@ let g:tabman_number = 0
 " vim-maximizer
 
 let g:maximizer_set_default_mapping = 0 
-nnoremap <C-W>o     :MaximizerToggle<CR>
-nnoremap <C-W><C-O> :MaximizerToggle<CR>
+nnoremap <C-W>o     :MaximizerToggle!<CR>
+nnoremap <C-W><C-O> :MaximizerToggle!<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -421,7 +443,7 @@ let g:airline#extensions#tagbar#flags = 'f'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gitgutter
 
-set updatetime=100
+set updatetime=500
 nmap <leader>g :GitGutterBufferToggle<CR>
 nmap <leader>G :GitGutterLineHighlightsToggle<CR>
 
@@ -493,9 +515,9 @@ nmap <silent> <F7> :Goyo<CR>
 function! s:at_help()
     if &buftype == 'help'
         " enable 'q' = quit
-        nnoremap <buffer> q <C-w>q<C-w>q
-        nnoremap <buffer> q <C-w>q<C-w>q
-        Goyo
+        "nnoremap <buffer> q <C-w>q
+        "Goyo
+        " ^ does not work!
     endif
 endfunction
 
@@ -595,10 +617,6 @@ nnoremap <leader>p :PingCursor<cr>
 " This is the default
 "let g:ping_cursor_flash_milliseconds = 250
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-snippy 
-" (done in ~/.config/nvim/init.vim)
-" FIXME: this plugin should not be in this Vim config (~/.vimrc)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-pandoc
@@ -610,7 +628,7 @@ let g:pandoc#spell#enabled = 0
 let g:pandoc#modules#disabled = ["folding", "bibliographies"]
 
 " linebreak (hard and smart auto)
-let g:pandoc#formatting#mode = 'hA'
+"let g:pandoc#formatting#mode = 'hA'
 
 " templates location
 " ('PandocTemplate get' did not work with real templates)

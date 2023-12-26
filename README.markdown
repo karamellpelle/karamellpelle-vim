@@ -20,8 +20,7 @@ karamellpelle-vim
 * add [undotree](https://github.com/mbbill/undotree)?
 * add [echodoc.vim](https://github.com/Shougo/echodoc.vim`)?
 * add [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)?
-* add [goyo.vim](https://github.com/junegunn/goyo.vim)?
-
+* remove _Dokumentary_, use setlocal langmap autocmd
 
 
 # resources
