@@ -2,7 +2,6 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-" TODO: use init.lua and source therefrom?
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setup vim-snippy
@@ -42,6 +41,7 @@ require( 'snippy' ).setup({
         local_snippet_dir = '.snippets',
         hl_group = 'SnippyHighlight'
 })
+
 
 
 --------------------------------------------------------------------------------

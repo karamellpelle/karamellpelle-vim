@@ -42,7 +42,6 @@ telescope.setup {
   }
 }
 
-
 --------------------------------------------------------------------------------
 --  Commands
 
@@ -64,6 +63,20 @@ create_command("Tq", function(arg)
     vim.cmd( "Telescope quickfix " .. (unpack( arg.fargs or {} ) or "") ) 
 end, { nargs="*", desc = ":Telescope quickfix" })
 
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
+--vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
+--vim.keymap.set('n', '<leader>tb', .extensions.vim_bookmarks, {})
+--vim.keymap.set('n', '<leader>tm', .extensions.menu, {})
+
+--------------------------------------------------------------------------------
+-- 
+
+local extensions = require('telescope').extensions
+
+
 --------------------------------------------------------------------------------
 --  Hoogle
 
@@ -75,8 +88,8 @@ telescope.load_extension('hoogle')
 telescope.load_extension('vim_bookmarks')
 
 -- set local actions (Picker)
-local bookmark_actions = require('telescope').extensions.vim_bookmarks.actions
-require('telescope').extensions.vim_bookmarks.all {
+local bookmark_actions = extensions.vim_bookmarks.actions
+extensions.vim_bookmarks.all {
     attach_mappings = function(_, map) 
         map('n', 'dd', bookmark_actions.delete_selected_or_at_cursor)
 
@@ -84,25 +97,3 @@ require('telescope').extensions.vim_bookmarks.all {
     end
 }
 
---------------------------------------------------------------------------------
---  menu
-
-require("telescope").setup {
-  extensions = {
-    menu = {
-      default = {
-        items = {
-          -- You can add an item of menu in the form of { "<display>", "<command>" }
-          { "Checkhealth", "checkhealth" },
-          { "Show LSP Info", "LspInfo" },
-          { "Files", "Telescope find_files" },
-
-          -- The above examples are syntax-sugars of the following;
-          { display = "Change colorscheme", value = "Telescope colorscheme" },
-        },
-      },
-    },
-  },
-}
-
-require("telescope").load_extension "menu"
