@@ -1,5 +1,14 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
+
+" fix a bug for msys2 on windows, https://github.com/neovim/neovim/issues/21148
+if has('win32') || has('win64')
+  set shell=$COMSPEC
+endif
+"let &shellcmdflag='-c'
+"let &shellquote="\""
+
+
 source ~/.vimrc
 
 
