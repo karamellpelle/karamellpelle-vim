@@ -65,7 +65,7 @@ if has('nvim')
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'dcampos/nvim-snippy' 
-Plug '~/Source/nvim-skeletty'
+Plug 'karamellpelle/nvim-skeletty'
 Plug 'ii14/neorepl.nvim' 
 Plug 'luc-tielen/telescope_hoogle'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
