@@ -112,11 +112,11 @@ set laststatus=2
 "set scrolloff=0   
 
 " select the pasted text
-noremap gV `[v`]
+nnoremap gV `[v`]
 
 " jump to beginning and end of line (excluding spaces)
-noremap H ^
-noremap L g_
+nnoremap H ^
+nnoremap L g_
 
 " Y yank to end of line, like D does
 nnoremap Y y$
@@ -163,7 +163,12 @@ colorscheme torte
 set nolangremap " don't map after a mapping
 set langmap=ø[,æ],å\\,Ø{,Æ},Å\|
 
+" efficient write to file
+nnoremap <Leader><Space> :w<CR>
 
+" jump to text blocks
+nnoremap <silent> ]] /\v(^$\n\|%^)@<=^.<CR>
+nnoremap <silent> [[ ?\v(^$\n\|%^)@<=^.<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
@@ -247,40 +252,37 @@ let g:EasyMotion_do_mapping = 0
 " no increment search
 "let g:EasyMotion_move_highlight = 0
 
-" searching
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-"let g:EasyMotion_inc_highlight = 0
-"
-" moving up and down colums
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 " jump to any character
 nmap s <Plug>(easymotion-overwin-f)
 
-" jump to character on line 
-map <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
 " jump to any word
-map <Leader>w <Plug>(easymotion-bd-w)
-map <Leader>w <Plug>(easymotion-overwin-w)
-map <Leader>e <Plug>(easymotion-e)
-map <Leader>E <Plug>(easymotion-E)
-map <Leader>ge <Plug>(easymotion-ge)
-map <Leader>gE <Plug>(easymotion-gE)
+"nmap <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+nmap <Leader>e <Plug>(easymotion-e)
+nmap <Leader>E <Plug>(easymotion-E)
+nmap <Leader>ge <Plug>(easymotion-ge)
+nmap <Leader>gE <Plug>(easymotion-gE)
+xmap <Leader>w <Plug>(easymotion-overwin-w)
+xmap <Leader>e <Plug>(easymotion-e)
+xmap <Leader>E <Plug>(easymotion-E)
+xmap <Leader>ge <Plug>(easymotion-ge)
+xmap <Leader>gE <Plug>(easymotion-gE)
 
 " jump up and down
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>L <Plug>(easymotion-bd-jk)
+let g:EasyMotion_startofline = 1 " ignore cursor column?
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+xmap <Leader>j <Plug>(easymotion-j)
+xmap <Leader>k <Plug>(easymotion-k)
+"map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>h <Plug>(easymotion-linebackward)
+xmap <Leader>L <Plug>(easymotion-overwin-line)
+nmap <Leader>l <Plug>(easymotion-lineanywhere)
+xmap <Leader>l <Plug>(easymotion-lineanywhere)
+
+"map <Leader>h <Plug>(easymotion-linebackward)
+"map <Leader><space> <Plug>(easymotion-lineanywhere)
+"map <Leader>h <Plug>(easymotion-lineanywhere) " gitgutter uses <leader>h?
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -407,7 +409,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " search filenames, not filepath (folders)
-let g:ctrlp_by_filename = 1
+"let g:ctrlp_by_filename = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

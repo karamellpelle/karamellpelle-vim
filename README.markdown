@@ -1,11 +1,11 @@
 karamellpelle-vim
 =================
 
-    $ cd ~
+    $ cd
     #$ rm -rf .vim .vimrc .config/nvim # erase current
     $ ln -s source/karamellpelle-vim/vimrc .vimrc
     $ ln -s source/karamellpelle-vim/vim .vim
-    $ ln -s source/karamellpelle-vim/nvim ~/.config/
+    $ ln -s ~/source/karamellpelle-vim/nvim ~/.config/
 
 # dependencies
 * lushtags
