@@ -5,12 +5,26 @@
 # it just copies
 ################################################################################
 
+SCRIPT=$(realpath "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT")
+VIM_DIR="$HOME/.vim"
+#NVIM_DIR="$LOCALAPPDATA/nvim"
+NVIM_DIR="$HOME/AppData/Local/nvim"
+#echo $SCRIPT
+#echo $SCRIPT_DIR
+#echo "$HOME_DIR"
+#echo "$VIM_DIR"
+#echo "$NVIM_DIR"
+
 # remove current
 cd ~
 rm -rf .vim
 rm -rf .vimrc
+rm -rf "$NVIM_DIR"
 
-# create symlinks (i.e. copy)
-ln -s source/karamellpelle-vim/vim .vim
-ln -s source/karamellpelle-vim/vimrc .vimrc
+# copy new
+cp -r "$SCRIPT_DIR/vimrc" "$HOME/.vimrc"
+cp -r "$SCRIPT_DIR/vim" "$VIM_DIR"
+cp -r "$SCRIPT_DIR/nvim" "$NVIM_DIR"
 
+# remember ':PlugInstall'

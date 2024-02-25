@@ -1,5 +1,10 @@
-karamellpelle-vim
-=================
+# karamellpelle-vim
+
+## install
+
+Do `:PlugInstall` on first run
+
+### unix
 
     $ cd
     #$ rm -rf .vim .vimrc .config/nvim # erase current
@@ -7,12 +12,14 @@ karamellpelle-vim
     $ ln -s source/karamellpelle-vim/vim .vim
     $ ln -s ~/source/karamellpelle-vim/nvim ~/.config/
 
+### win/msys2
+
+    $ ./win_overwrite.sh
+
 # dependencies
 * lushtags
 * ctags.io
 
-
-# neovim
 
 # TODO
 
