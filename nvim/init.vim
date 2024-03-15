@@ -63,6 +63,7 @@ require( 'skeletty' ).setup( {
       localdir_project = true,
       localdir_exclusive = true,
       auto = true,
+      auto_single = true,
       apply_at_top = true,
       override = true,
       --selector_native_force = false,

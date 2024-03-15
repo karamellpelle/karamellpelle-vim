@@ -97,3 +97,8 @@ extensions.vim_bookmarks.all {
     end
 }
 
+
+--------------------------------------------------------------------------------
+--  emoji
+
+require("telescope").load_extension("emoji")
