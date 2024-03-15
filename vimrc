@@ -53,6 +53,7 @@ Plug 'uptech/vim-ping-cursor'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim' " needs vim-fugitive
+Plug 'junegunn/vim-emoji'
 
 " don't fire startify if vimpager
 " FIXME: this does not work
@@ -69,6 +70,7 @@ Plug 'karamellpelle/nvim-skeletty'
 Plug 'ii14/neorepl.nvim' 
 Plug 'luc-tielen/telescope_hoogle'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
+Plug 'xiyaowong/telescope-emoji.nvim'
 endif
 
 call plug#end()
@@ -169,6 +171,10 @@ nnoremap <Leader><Space> :w<CR>
 " jump to text blocks
 nnoremap <silent> ]] /\v(^$\n\|%^)@<=^.<CR>
 nnoremap <silent> [[ ?\v(^$\n\|%^)@<=^.<CR>
+
+" insert newlines without leaving normal mode
+nnoremap o o<Esc>
+nnoremap O O<Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
