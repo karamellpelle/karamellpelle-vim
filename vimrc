@@ -30,7 +30,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'szw/vim-maximizer'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'darfink/vim-plist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -468,14 +468,8 @@ highlight SignColumn ctermbg=none
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-multiple-cursors
+" vim-visual-multi
 
-" default mapping
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-j>'
-let g:multi_cursor_skip_key='<C-k>'
-let g:multi_cursor_quit_key='<Esc>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
