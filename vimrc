@@ -533,6 +533,8 @@ function! s:goyo_enter()
       "set background=light
       "set linespace=7
     endif
+    set wrap
+    set linebreak
 
 endfunction
 
