@@ -176,6 +176,8 @@ nnoremap <silent> [[ ?\v(^$\n\|%^)@<=^.<CR>
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
+set termguicolors
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
 "
