@@ -510,7 +510,8 @@ let delimitMate_expand_space = 1
 " goyo
 
 " Goyo from F7
-nmap <silent> <F7> :Goyo<CR>
+nnoremap <silent> <F7> :Goyo<CR>
+inoremap <silent> <F7> <C-o>:Goyo<CR>
 
 
 " special actions for help files
