@@ -158,9 +158,6 @@ set splitbelow
 " modify macroregister with <Leader>m
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
-" I like this colorscheme
-colorscheme torte
-
 " map international keyboard to US-keyboard (non-insert mode)
 set nolangremap " don't map after a mapping
 set langmap=ø[,æ],å\\,Ø{,Æ},Å\|
@@ -175,6 +172,15 @@ nnoremap <silent> [[ ?\v(^$\n\|%^)@<=^.<CR>
 " insert newlines without leaving normal mode
 nnoremap o o<Esc>
 nnoremap O O<Esc>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colors
+
+" prevent gray background on concealed characters (vim-pandoc-syntax)
+au Colorscheme * hi! link Conceal Number
+
+" I like this colorscheme
+colorscheme torte
 
 set termguicolors
 
