@@ -35,45 +35,5 @@ highlight SnippyHighlight cterm=underline,bold ctermfg=11 gui=bold guifg=Yellow
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim lua
 
-lua << EOF
+lua require( "user" )
 
---------------------------------------------------------------------------------
--- Telescope with friends
-
-require( "user.telescope" )
-
-
---------------------------------------------------------------------------------
---  Snippy
-
-require( 'snippy' ).setup({
-        local_snippet_dir = '.snippets',
-        hl_group = 'SnippyHighlight'
-})
-
-
-
---------------------------------------------------------------------------------
---  Skeletty
-
-
-require( 'skeletty' ).setup( {
-      dirs = { '~/.vim/skeletons' },
-      localdir = '.skeletons',
-      localdir_project = true,
-      localdir_exclusive = true,
-      auto = true,
-      auto_single = true,
-      apply_at_top = true,
-      override = true,
-      --selector_native_force = false,
-      apply_syntax = true,
-      telescope = 
-      {
-          --skeletty_hl_group = "Search",
-      }
-  } )
-
-require("telescope").load_extension('skeletty')
-
-EOF

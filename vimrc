@@ -64,13 +64,15 @@ endif
 " NeoVim exclusive plugins
 if has('nvim')
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'dcampos/nvim-snippy' 
 Plug 'karamellpelle/nvim-skeletty'
 Plug 'ii14/neorepl.nvim' 
 Plug 'luc-tielen/telescope_hoogle'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 Plug 'xiyaowong/telescope-emoji.nvim'
+Plug 'octarect/telescope-menu.nvim'
+Plug 'akinsho/toggleterm.nvim'
 endif
 
 call plug#end()
