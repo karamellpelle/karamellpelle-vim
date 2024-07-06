@@ -6,7 +6,7 @@ local telescope = require('telescope')
 telescope.setup {
 
   defaults = {
-      initial_mode = "normal",
+      initial_mode = "insert",
       layout_strategy = "vertical",
 
     -- Default configuration for telescope goes here:
@@ -43,35 +43,6 @@ telescope.setup {
 }
 
 --------------------------------------------------------------------------------
---  Commands
-
--- | :T 
-local create_command = vim.api.nvim_create_user_command
-create_command("T", function(arg) 
-    vim.cmd( "Telescope " .. (unpack( arg.fargs or {} )  or "" ) )
-end, { nargs="*", desc = ":Telescope" })
-
--- | :Tg
-local create_command = vim.api.nvim_create_user_command
-create_command("Tg", function(arg) 
-    vim.cmd( "Telescope live_grep " .. (unpack( arg.fargs or {} ) or "" ) )
-end, { nargs="*", desc = ":Telescope live_grep" })
-
--- | :Tq
-local create_command = vim.api.nvim_create_user_command
-create_command("Tq", function(arg) 
-    vim.cmd( "Telescope quickfix " .. (unpack( arg.fargs or {} ) or "") ) 
-end, { nargs="*", desc = ":Telescope quickfix" })
-
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
---vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
---vim.keymap.set('n', '<leader>tb', .extensions.vim_bookmarks, {})
---vim.keymap.set('n', '<leader>tm', .extensions.menu, {})
-
---------------------------------------------------------------------------------
 -- 
 
 local extensions = require('telescope').extensions
@@ -102,3 +73,50 @@ extensions.vim_bookmarks.all {
 --  emoji
 
 require("telescope").load_extension("emoji")
+
+
+--------------------------------------------------------------------------------
+--  menu : create custom menus
+
+
+local function make_menu(...)
+    local is = { ... }
+    local default_items = 
+          { { "Checkhealth", "checkhealth" },
+            { "Show LSP Info", "LspInfo" },
+            { "Files", "Telescope find_files" },
+            { display = "Change colorscheme", value = "Telescope colorscheme" },
+          }
+    for _,v in pairs(default_items) do table.insert( is, v ) end
+    return { items = is }
+end
+
+require("telescope").setup {
+  extensions = {
+    menu = { default  = make_menu(),
+             -- custom menus here:
+             -- (empty)
+             -- custom menus for defines filetypes inside here:
+             filetype = {
+             markdown = make_menu({"Test", "WTF"}),
+             haskell  = make_menu( 
+                        { "Hello", "CMD" }
+                      , { "GoodBye", "print('KOKO')" }
+                    ),
+             }
+    }
+  }
+}
+
+
+require("telescope").load_extension "menu"
+
+--------------------------------------------------------------------------------
+--  Telescope mappings
+
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>tt',  function() telescope.extensions.menu.menu({}) end, {}) -- does not work :(
+
