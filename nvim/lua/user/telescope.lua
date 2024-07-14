@@ -116,6 +116,7 @@ require("telescope").load_extension "menu"
 
 
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>tr', builtin.resume, {})
 vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>tt',  function() telescope.extensions.menu.menu({}) end, {}) -- does not work :(
