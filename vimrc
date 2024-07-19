@@ -54,6 +54,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim' " needs vim-fugitive
 Plug 'junegunn/vim-emoji'
+Plug 'tomasiser/vim-code-dark'
 
 " don't fire startify if vimpager
 " FIXME: this does not work
@@ -73,6 +74,7 @@ Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 Plug 'xiyaowong/telescope-emoji.nvim'
 Plug 'octarect/telescope-menu.nvim'
 Plug 'akinsho/toggleterm.nvim'
+Plug 'rcarriga/nvim-notify'
 endif
 
 call plug#end()
@@ -182,7 +184,8 @@ nnoremap O O<Esc>
 au Colorscheme * hi! link Conceal Number
 
 " I like this colorscheme
-colorscheme torte
+"colorscheme torte
+colorscheme codedark
 
 set termguicolors
 
