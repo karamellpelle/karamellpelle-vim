@@ -55,6 +55,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim' " needs vim-fugitive
 Plug 'junegunn/vim-emoji'
 Plug 'tomasiser/vim-code-dark'
+Plug 'nvim-telescope/telescope-symbols.nvim'
 
 " don't fire startify if vimpager
 " FIXME: this does not work
