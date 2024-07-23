@@ -82,10 +82,16 @@ require("telescope").load_extension("emoji")
 local function make_menu(...)
     local is = { ... }
     local default_items = 
-          { { "Checkhealth", "checkhealth" },
-            { "Show LSP Info", "LspInfo" },
-            { "Files", "Telescope find_files" },
-            { display = "Change colorscheme", value = "Telescope colorscheme" },
+          { 
+            { display = "jumplist", value = "Telescope jumplist" },
+            { display = "keymap", value = "Telescope keymap" },
+            { display = "highlights", value = "Telescope highlights" },
+            { display = "man", value = "Telescope man" },
+            { display = "quickfix", value = "Telescope quickfix" },
+            { display = "symbols", value = "Telescope symbols" },
+            { display = "registers", value = "Telescope registers" },
+            { display = "helptags", value = "Telescope help_tags" },
+            { display = "Checkhealth", value = "checkhealth" },
           }
     for _,v in pairs(default_items) do table.insert( is, v ) end
     return { items = is }
@@ -116,8 +122,11 @@ require("telescope").load_extension "menu"
 
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tr', builtin.resume, {})
+vim.keymap.set('n', '<leader>tt', builtin.resume, {})
 vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>tt',  function() telescope.extensions.menu.menu({}) end, {}) -- does not work :(
+vim.keymap.set('n', '<leader>ts', builtin.search_history, {})
+vim.keymap.set('n', '<leader>to', builtin.vim_options, {})
+vim.keymap.set('n', '<leader>tm', function() telescope.extensions.menu.menu({}) end)
+vim.keymap.set('n', '<leader>te', function() telescope.extensions.emoji.emoji({}) end) 
+vim.keymap.set('n', '<leader>th', function() telescope.extensions.hoogle.hoogle({}) end) 
 
