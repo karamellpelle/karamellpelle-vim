@@ -54,7 +54,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim' " needs vim-fugitive
 Plug 'junegunn/vim-emoji'
-Plug 'tomasiser/vim-code-dark'
+Plug 'nordtheme/vim', { 'as': 'nord-vim' }
 Plug 'nvim-telescope/telescope-symbols.nvim'
 
 " don't fire startify if vimpager
@@ -186,7 +186,7 @@ au Colorscheme * hi! link Conceal Number
 
 " I like this colorscheme
 "colorscheme torte
-colorscheme codedark
+colorscheme nord
 
 set termguicolors
 
