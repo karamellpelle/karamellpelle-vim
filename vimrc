@@ -133,7 +133,7 @@ nnoremap Y y$
 nnoremap Q <Nop>
 
 " use mouse
-set mouse=a
+set mouse=n
 
 " always show tab-bar
 set showtabline=2
