@@ -56,6 +56,12 @@ Plug 'junegunn/gv.vim' " needs vim-fugitive
 Plug 'junegunn/vim-emoji'
 Plug 'nordtheme/vim', { 'as': 'nord-vim' }
 Plug 'nvim-telescope/telescope-symbols.nvim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'cocopon/iceberg.vim'
+Plug 'gkeep/iceberg-dark'
+Plug 'connorholyday/vim-snazzy'
 
 " don't fire startify if vimpager
 " FIXME: this does not work
@@ -184,9 +190,15 @@ nnoremap O O<Esc>
 " prevent gray background on concealed characters (vim-pandoc-syntax)
 au Colorscheme * hi! link Conceal Number
 
+set background=dark
 " I like this colorscheme
 "colorscheme torte
-colorscheme nord
+"colorscheme codedark
+"colorscheme codedark
+"colorscheme catppuccin_mocha
+"colorscheme iceberg
+colorscheme snazzy
+"colorscheme dracula
 
 set termguicolors
 
@@ -458,7 +470,7 @@ let g:scratch_persistence_file = "~/.vim/scratch.vim"
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#flags = 'f'
-
+let g:airline_theme='icebergDark'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gitgutter
