@@ -180,16 +180,19 @@ nnoremap O O<Esc>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colors
 
-" prevent gray background on concealed characters (vim-pandoc-syntax)
-au Colorscheme * hi! link Conceal Number
 
 set background=dark
-" I like this colorscheme:
+set termguicolors
+
+" I like this original Vim colorscheme:
 "colorscheme torte
+" prevent gray background on concealed characters (vim-pandoc-syntax)
+"au Colorscheme * hi! link Conceal Number
+
 " however, this works better because it's modern:
+let g:SnazzyTransparent = 1 
 colorscheme snazzy
 
-set termguicolors
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-startify
