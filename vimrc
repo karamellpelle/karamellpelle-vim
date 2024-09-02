@@ -218,19 +218,10 @@ let s:header_cmd =
 let g:startify_custom_header =
   \ startify#center(split(system(s:header_cmd), '\n'))
 
-" centered footer TODO: add some fun :)
+" centered footer 
 let g:startify_custom_footer = 
-    \ startify#center(split(system('git status --short'), '\n'))
-"let g:startify_custom_footer = 
-"   \ startify#center(split("lines"), '\n')) " split :: String -> [String]
-"let s:ascii = [
-"   \ '    ',
-"   \ ' O o',
-"   \ '  -',
-"   \ ' ' 
-"   \]
-"let g:startify_custom_footer = 
-"   \ startify#center(s:ascii)
+    "\ startify#center(split(system('git status --short'), '\n'))
+    \ startify#center(split(system('gdu -an'), '\n'))
 
 " start menu: files in current project + custom commands
 let g:startify_lists = [
