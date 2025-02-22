@@ -455,6 +455,9 @@ let g:scratch_persistence_file = "~/.vim/scratch.vim"
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#flags = 'f'
 let g:airline_theme='base16_snazzy'
+" show wordcount for text files
+let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|markdown.pandoc|pandoc|org|rst|tex|text'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gitgutter
