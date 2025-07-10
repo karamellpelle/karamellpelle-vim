@@ -463,8 +463,14 @@ let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|ma
 " gitgutter
 
 set updatetime=500
-nmap <leader>g :GitGutterBufferToggle<CR>
-nmap <leader>G :GitGutterLineHighlightsToggle<CR>
+
+let g:gitgutter_map_keys = 0
+nmap <leader>hp <Plug>(GitGutterPrevHunk)
+nmap <leader>hn <Plug>(GitGutterNextHunk)
+nmap <leader>hh <Plug>(GitGutterPreviewHunk)
+nmap <leader>ha <Plug>(GitGutterStageHunk)
+nmap <leader>hu <Plug>(GitGutterUndoHunk)
+nmap <leader>hG :GitGutterLineHighlightsToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabmerge
