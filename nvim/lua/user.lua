@@ -9,7 +9,12 @@ require( "user.telescope" )
 
 require( 'snippy' ).setup({
         local_snippet_dir = '.snippets',
-        hl_group = 'SnippyHighlight'
+        hl_group = 'SnippyHighlight',
+        virtual_markers = {
+            enabled = true,
+            empty = '%n:␣',
+            default = '%n:',
+        },
 })
 
 
