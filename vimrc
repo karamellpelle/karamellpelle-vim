@@ -66,7 +66,10 @@ endif
 if has('nvim')
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'dcampos/nvim-snippy' 
+Plug 'dcampos/cmp-snippy'
 Plug 'karamellpelle/nvim-skeletty'
 Plug 'ii14/neorepl.nvim' 
 Plug 'luc-tielen/telescope_hoogle'
